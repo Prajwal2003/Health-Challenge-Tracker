@@ -1,0 +1,81 @@
+<div class="p-4 bg-white shadow-md rounded-lg">
+  <h2 class="text-xl font-semibold mb-4">Workout Tracker</h2>
+
+
+  <div class="grid grid-cols-3 gap-4 mb-4">
+    <label class="block">
+      <span class="text-gray-700">User Name</span>
+      <input type="text" placeholder="Enter name" [(ngModel)]="userName" name="userName"
+        class="p-2 border rounded w-full" required />
+    </label>
+
+    <label class="block">
+      <span class="text-gray-700">Workout Type</span>
+      <select [(ngModel)]="workoutType" name="workoutType" class="p-2 border rounded w-full">
+        <option value="Cycling">Cycling</option>
+        <option value="Running">Running</option>
+        <option value="Swimming">Swimming</option>
+        <option value="Yoga">Yoga</option>
+        <option value="Gym">Gym</option>
+      </select>
+    </label>
+
+    <label class="block">
+      <span class="text-gray-700">Minutes</span>
+      <input type="number" placeholder="Duration (min)" [(ngModel)]="workoutMinutes" name="workoutMinutes"
+        class="p-2 border rounded w-full" required />
+    </label>
+  </div>
+
+
+  <button (click)="addWorkout()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mb-4">
+    Add Workout
+  </button>
+
+
+  <div class="flex gap-4 mb-4">
+    <input type="text" placeholder="Search by name..." [(ngModel)]="searchTerm" (input)="groupAndFilterWorkouts()"
+      class="w-1/2 p-2 border rounded" />
+    <select [(ngModel)]="filterType" (change)="groupAndFilterWorkouts()" class="w-1/2 p-2 border rounded">
+      <option value="All">All</option>
+      <option *ngFor="let type of ['Running', 'Cycling', 'Swimming', 'Yoga', 'Gym']" [value]="type">
+        {{ type }}
+      </option>
+    </select>
+  </div>
+
+
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border p-2 text-left">User Name</th>
+          <th class="border p-2 text-left">Workout Types</th>
+          <th class="border p-2 text-left">Total Types</th>
+          <th class="border p-2 text-left">Total Minutes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let group of paginatedWorkouts">
+          <td class="border p-2">{{ group.userName }}</td>
+          <td class="border p-2">
+            <div *ngFor="let type of getWorkoutTypes(group.workoutCounts)">
+              {{ type }}: {{ group.workoutCounts[type] }} min
+            </div>
+          </td>
+          <td class="border p-2">{{ group.totalTypes }}</td>
+          <td class="border p-2">{{ group.totalMinutes }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="mt-4 flex justify-center items-center gap-2">
+    <button (click)="previousPage()" [disabled]="currentPage === 1"
+      class="px-3 py-1 bg-gray-300 rounded disabled:opacity-50">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+      class="px-3 py-1 bg-gray-300 rounded disabled:opacity-50">Next</button>
+  </div>
+</div>
