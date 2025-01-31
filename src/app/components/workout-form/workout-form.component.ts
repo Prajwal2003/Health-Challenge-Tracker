@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+
 
 interface Workout {
   userName: string;
@@ -66,6 +67,7 @@ export class WorkoutFormComponent {
       existingWorkouts.push(workout);
       localStorage.setItem('workouts', JSON.stringify(existingWorkouts));
       this.loadWorkouts();
+      console.log("Loaded Workouts from LocalStorage:", this.workouts);
     } else {
       console.warn("LocalStorage is not available.");
     }
@@ -129,19 +131,29 @@ export class WorkoutFormComponent {
     return this.groupedWorkouts.slice(startIndex, startIndex + this.pageSize);
   }
 
+  getWorkoutTypes(workoutCounts: Record<string, number>): string[] {
+      return Object.keys(workoutCounts);
+    }
+
+  @ViewChild('bottomAnchor') bottomAnchor!: ElementRef;
+
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+      setTimeout(() => this.scrollToBottom(), 50);
     }
   }
 
   previousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
+      setTimeout(() => this.scrollToBottom(), 50);
     }
   }
 
-  getWorkoutTypes(workoutCounts: Record<string, number>): string[] {
-    return Object.keys(workoutCounts);
+  scrollToBottom() {
+    if (this.bottomAnchor) {
+      this.bottomAnchor.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
   }
 }
