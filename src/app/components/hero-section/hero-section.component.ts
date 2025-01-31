@@ -10,14 +10,12 @@ export class HeroSectionComponent {
 
   @ViewChild('bottomAnchor') bottomAnchor!: ElementRef;
 
-  nextPage() {
-      setTimeout(() => this.scrollToBottom(), 50);
-  }
-
-  scrollToBottom() {
+  scrollToWorkouts() {
     if (this.bottomAnchor) {
-      this.bottomAnchor.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      this.bottomAnchor.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   }
-
 }
