@@ -1,59 +1,95 @@
-# HealthChallengeTracker
+# Health Challenge Tracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+This is a health challenge tracker web application built using Angular. The app allows users to log their workouts, view workout statistics, and track their progress over time. It uses `localStorage` to save user data and provides an easy-to-use interface to monitor fitness goals.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Workout Log**: Allows users to log their workout details including type, duration, and calories burned.
+- **Workout Statistics**: Displays statistics such as the shortest and longest workouts.
+- **Responsive Design**: Built with Tailwind CSS for a modern, mobile-friendly design.
+- **Data Persistence**: User data is stored in `localStorage` for session persistence.
+
+## Technologies Used
+
+- **Angular**: Frontend framework for building the application.
+- **Tailwind CSS**: Utility-first CSS framework used for styling the app.
+- **localStorage**: Used to store and retrieve workout data in the browser.
+
+## Requirements
+
+- Node.js (version >= 14)
+- npm (Node package manager)
+- chart.js
+  
+## Getting Started
+
+To get started with the development of this project, follow the steps below:
+
+### 1. Clone the repository
 
 ```bash
+git clone https://github.com/your-username/health-challenge-tracker.git
+cd health-challenge-tracker
+
+2. Install dependencies
+
+Install all the required dependencies using npm:
+
+npm install
+
+3. Run the application
+
+Once the dependencies are installed, run the development server:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+This will start the Angular development server and you can access the application at http://localhost:4200.
 
-## Code scaffolding
+Folder Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+src/
+├── app/
+    ├── components/
+    │   ├── ABC/
+    │   │   ├── ABC.component.ts   
+    │   │   ├── ABC.component.html 
+    │   │   └── ABC.component.scss 
+    │   └── .....
+    ├── app.component.ts
+    │── app.component.html
+    └── index.html
 
-```bash
-ng generate component component-name
-```
+Usage
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Once the app is running, you can interact with the following features:
+	•	Log a new workout: Use the provided form to log a new workout including its duration, type, and calories burned.
+	•	View statistics: On the main page, you’ll see the shortest and longest workout durations.
 
-```bash
-ng generate --help
-```
+Example of Workout Data
 
-## Building
+{
+  "type": "Running",
+  "duration": 45
+}
 
-To build the project run:
+License
 
-```bash
-ng build
-```
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Acknowledgements
+	•	Tailwind CSS: A utility-first CSS framework.
+	•	Angular: A TypeScript-based open-source web application framework.
 
-## Running unit tests
+Troubleshooting
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Error: localStorage is not defined
 
-```bash
-ng test
-```
+This error typically occurs if the app is trying to use localStorage during server-side rendering or in a non-browser environment (such as during unit testing).
 
-## Running end-to-end tests
+To fix this, ensure that the code accessing localStorage is only run in the browser. You can do this by checking if window or localStorage is available before using it.
 
-For end-to-end (e2e) testing, run:
+if (typeof window !== 'undefined' && window.localStorage) {
+  const data = localStorage.getItem('key');
+}
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Enjoy using the Health Challenge Tracker! 🎉
