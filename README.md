@@ -30,23 +30,26 @@ To get started with the development of this project, follow the steps below:
 ```bash
 git clone https://github.com/your-username/health-challenge-tracker.git
 cd health-challenge-tracker
+```
 
-2. Install dependencies
+### 2. Install dependencies
 
 Install all the required dependencies using npm:
 
+```bash
 npm install
+```
 
-3. Run the application
+### 3. Run the application
 
 Once the dependencies are installed, run the development server:
-
+```bash
 ng serve
-
+```
 This will start the Angular development server and you can access the application at http://localhost:4200.
 
-Folder Structure
-
+### Folder Structure
+```bash
 src/
 ├── app/
     ├── components/
@@ -58,29 +61,31 @@ src/
     ├── app.component.ts
     │── app.component.html
     └── index.html
+```
 
-Usage
+### Usage
 
 Once the app is running, you can interact with the following features:
 	•	Log a new workout: Use the provided form to log a new workout including its duration, type, and calories burned.
 	•	View statistics: On the main page, you’ll see the shortest and longest workout durations.
 
 Example of Workout Data
-
+```
 {
   "type": "Running",
   "duration": 45
 }
+```
 
-License
+### License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgements
+### Acknowledgements
 	•	Tailwind CSS: A utility-first CSS framework.
 	•	Angular: A TypeScript-based open-source web application framework.
 
-Troubleshooting
+### Troubleshooting
 
 Error: localStorage is not defined
 
@@ -92,4 +97,4 @@ if (typeof window !== 'undefined' && window.localStorage) {
   const data = localStorage.getItem('key');
 }
 
-Enjoy using the Health Challenge Tracker! 🎉
+### Enjoy using the Health Challenge Tracker! 🎉
