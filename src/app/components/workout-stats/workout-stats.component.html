@@ -1,0 +1,24 @@
+<div class="p-4 bg-white shadow-md rounded-lg m-5">
+    <h2 class="text-xl font-semibold mb-4">Workout Statistics</h2>
+  
+    <label class="block mb-4">
+      <span class="text-gray-700">Select User:</span>
+      <select [(ngModel)]="selectedUser" (change)="onUserSelect()" class="p-2 border rounded w-full">
+        <option value="">-- Select --</option>
+        <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+      </select>
+    </label>
+      
+    <div *ngIf="selectedUser">
+      <h3 class="text-lg font-semibold mt-4">Workout Summary</h3>
+      <p>Total Time Spent: <strong>{{ totalMinutes }}</strong> min</p>
+      <p>Average Workout Time: <strong>{{ avgMinutes.toFixed(2) }}</strong> min</p>
+      <p>Shortest Workout: <strong>{{ minMinutes }}</strong> min</p>
+      <p>Longest Workout: <strong>{{ maxMinutes }}</strong> min</p>
+  
+      <div class="mt-4">
+        <h3 class="text-lg font-semibold">Workout Type Distribution</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+  </div>
