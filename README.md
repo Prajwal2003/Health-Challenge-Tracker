@@ -63,6 +63,29 @@ src/
     └── index.html
 ```
 
+### Summary
+
+- **Total Specs Executed**: 23
+- **Total Specs Passed**: 23
+- **Total Duration**: 0.099 seconds
+
+### Test Results
+
+| Component               | Test Outcome                                                                                                                                                                                      |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **IntroSlideComponent**  | should create                                                                                                                                                                                    |
+| **AppComponent**         | should create the app, should have the 'health-challenge-tracker' title, should render title                                                                                                      |
+| **WorkoutStatsComponent**| should create                                                                                                                                                                                    |
+| **WorkoutFormComponent** | should return correct total pages, should filter workouts by type, should scroll to bottom on nextPage(), should navigate to the next page, should paginate workouts correctly, should call addWorkout when button is clicked, should initialize with an empty workouts array, should scroll to bottom on previousPage(), should not add a workout if required fields are missing, should group workouts correctly, should filter workouts by user name, should create the component, should load workouts from localStorage, should add a workout and save it to localStorage, should not go past the last page, should navigate to the previous page, should not go below the first page |
+| **HeroSectionComponent** | should create                                                                                                                                                                                    |
+
+## Code Coverage
+
+- **Statements**: 70.27% (78/111)
+- **Branches**: 63.88% (23/36)
+- **Functions**: 53.33% (16/30)
+- **Lines**: 75.51% (74/98)
+
 ### Usage
 
 Once the app is running, you can interact with the following features:
@@ -84,47 +107,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ### Acknowledgements
 	•	Tailwind CSS: A utility-first CSS framework.
 	•	Angular: A TypeScript-based open-source web application framework.
-
-### Unit test Result:
-
-Chrome 132.0.0.0 (Mac OS 10.15.7): Executed 23 of 23 SUCCESS (0.099 secs / 0.086 secs)
-TOTAL: 23 SUCCESS
-
-3 specs, 0 failures, randomized with seed 27306
-**IntroSlideComponent**
-should create
-**AppComponent**
-should create the app
-should have the 'health-challenge-tracker' title
-should render title
-**WorkoutStatsComponent**
-should create
-**WorkoutFormComponent**
-should return correct total pages
-should filter workouts by type
-should scroll to bottom on nextPage()
-should navigate to the next page
-should paginate workouts correctly
-should call addWorkout when button is clicked
-should initialize with an empty workouts array
-should scroll to bottom on previousPage()
-should not add a workout if required fields are missing
-should group workouts correctly
-should filter workouts by user name
-should create the component
-should load workouts from localStorage
-should add a workout and save it to localStorage
-should not go past the last page
-should navigate to the previous page
-should not go below the first page
-**HeroSectionComponent**
-should create
-
-### Code Coverage
-
-=============================== Code Coverage summary ===============================
-Statements   : 70.27% ( 78/111 )
-Branches     : 63.88% ( 23/36 )
-Functions    : 53.33% ( 16/30 )
-Lines        : 75.51% ( 74/98 )
-=====================================================================================
