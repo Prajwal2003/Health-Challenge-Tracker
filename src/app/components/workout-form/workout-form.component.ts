@@ -24,6 +24,7 @@ interface GroupedWorkout {
   styleUrls: ['./workout-form.component.scss'],
   imports: [CommonModule, FormsModule]
 })
+
 export class WorkoutFormComponent {
   userName: string = '';
   workoutType: string = 'Cycling';

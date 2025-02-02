@@ -85,16 +85,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 	•	Tailwind CSS: A utility-first CSS framework.
 	•	Angular: A TypeScript-based open-source web application framework.
 
-### Troubleshooting
-
-Error: localStorage is not defined
-
-This error typically occurs if the app is trying to use localStorage during server-side rendering or in a non-browser environment (such as during unit testing).
-
-To fix this, ensure that the code accessing localStorage is only run in the browser. You can do this by checking if window or localStorage is available before using it.
-
-if (typeof window !== 'undefined' && window.localStorage) {
-  const data = localStorage.getItem('key');
-}
-
-### Enjoy using the Health Challenge Tracker! 🎉
+=============================== Coverage summary ===============================
+Statements   : 67.88% ( 74/109 )
+Branches     : 61.11% ( 22/36 )
+Functions    : 50% ( 15/30 )
+Lines        : 72.91% ( 70/96 )
+================================================================================
