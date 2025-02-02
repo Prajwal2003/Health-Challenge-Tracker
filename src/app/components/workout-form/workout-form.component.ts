@@ -60,7 +60,7 @@ export class WorkoutFormComponent {
       userName: this.userName,
       workoutType: this.workoutType,
       workoutMinutes: this.workoutMinutes,
-      date: new Date().toLocaleDateString()
+      date: new Date().toISOString().split('T')[0],
     };
 
     if (typeof window !== 'undefined' && localStorage) {
@@ -143,6 +143,7 @@ export class WorkoutFormComponent {
       this.currentPage++;
       setTimeout(() => this.scrollToBottom(), 50);
     }
+    this.scrollToBottom();
   }
 
   previousPage() {
@@ -150,6 +151,7 @@ export class WorkoutFormComponent {
       this.currentPage--;
       setTimeout(() => this.scrollToBottom(), 50);
     }
+    this.scrollToBottom();
   }
 
   scrollToBottom() {

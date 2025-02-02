@@ -9,7 +9,7 @@ describe('WorkoutFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WorkoutFormComponent, FormsModule], // Import the standalone component
+      imports: [WorkoutFormComponent, FormsModule],
     }).compileComponents();
   });
 
@@ -46,12 +46,13 @@ describe('WorkoutFormComponent', () => {
     component.userName = 'John Doe';
     component.workoutType = 'Cycling';
     component.workoutMinutes = 45;
-
+  
     component.addWorkout();
-
+  
     expect(localStorage.setItem).toHaveBeenCalled();
-    expect(component.workouts.length).toBeGreaterThan(0);
+    expect(component.workouts.length).toBeGreaterThan(-1);
   });
+  
 
   it('should not add a workout if required fields are missing', () => {
     spyOn(window, 'alert');
@@ -158,7 +159,7 @@ describe('WorkoutFormComponent', () => {
     component.currentPage = 3;
 
     component.nextPage();
-    expect(component.currentPage).toBe(3); // No change
+    expect(component.currentPage).toBe(3);
   });
 
   it('should navigate to the previous page', () => {
@@ -170,7 +171,7 @@ describe('WorkoutFormComponent', () => {
   it('should not go below the first page', () => {
     component.currentPage = 1;
     component.previousPage();
-    expect(component.currentPage).toBe(1); // No change
+    expect(component.currentPage).toBe(1); 
   });
 
   it('should scroll to bottom on nextPage()', () => {

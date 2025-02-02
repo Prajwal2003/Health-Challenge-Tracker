@@ -14,5 +14,5 @@ import { WorkoutStatsComponent } from './components/workout-stats/workout-stats.
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'health-challenge-tracker';
+  title = 'Get Fit, Strong & Motivated!';
 }
